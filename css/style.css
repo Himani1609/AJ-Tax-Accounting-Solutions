@@ -43,6 +43,57 @@ We are confident that you will be more than pleased by your purchase!
 
 -------------------------------------------------------------- */
 
+
+
+/* Additional CSS */
+
+
+.hero-slide-title {
+  font-size: 36px !important;
+  line-height: 1.3;
+}
+
+
+.industry_name {
+  font-weight: bold;
+  margin-top: 10px;
+  font-size: 16px;
+  text-align: center;
+}
+
+aside.column-contact .widget .widget_text{
+    width: 100% !important;
+
+}
+
+.widget_inner{
+    display: flex !important;
+    gap: 70px;
+}
+
+.footer_menu .footer_menu_item {
+    color: white !important;
+    text-decoration: none;
+    list-style: none;
+    border: none;
+}
+
+
+.quick_link{
+    margin: 0%;
+    margin-bottom: 20px;
+}
+
+.director_info{
+    display: flex;
+}
+
+.director_content{
+    
+}
+
+/* ------------------------------------------------------------------------- */
+
 /*************** Default tag's settings ***************/
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code,
 del, dfn, em, font, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, dl, dt, dd, ol, ul, li, fieldset,
@@ -8234,7 +8285,7 @@ h6 .wpb_text_column p {
 
 /* Page Shortcodes */
 .top_panel_image.top_panel_image_1{
-	background-image: url(../images/1920x479.jpg);
+	background-image: url(../images/photo2.jpg);
 	background-size: cover;
 	background-position: center;
 }
@@ -8250,24 +8301,3 @@ h6 .wpb_text_column p {
 	height: 199px;
 }
 
-/* ----------------------------------------------------------------------------------- */
-
-
-/* Additional CSS */
-.hero-slide-title {
-  font-size: 36px !important;
-  line-height: 1.3;
-}
-
-
-.industry_name {
-  font-weight: bold;
-  margin-top: 10px;
-  font-size: 16px;
-  text-align: center;
-}
-
-aside.column-contact .widget .widget_text{
-    width: 100% !important;
-
-}
