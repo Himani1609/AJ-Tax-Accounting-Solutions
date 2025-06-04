@@ -2726,7 +2726,7 @@ ul.sc_list_style_iconed {
 .sc_section:after {
     content: ' ';
     display: block;
-    width: 100%;
+    /* width: 100%; */
     height: 0;
     clear: both;
 }

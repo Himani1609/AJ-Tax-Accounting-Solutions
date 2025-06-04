@@ -88,9 +88,10 @@ aside.column-contact .widget .widget_text{
     display: flex;
 }
 
-.director_content{
-    
+.sc_team_item_avatar:hover .sc_team_item_hover {
+    opacity: 1;
 }
+
 
 /* ------------------------------------------------------------------------- */
 
@@ -6861,7 +6862,7 @@ footer.twitter_wrap .sc_section_overlay {
     padding: 3em 0;
 }
 .copyright_wrap_inner {
-    padding: 3.5em 0 2em;
+    padding: 2em;
     overflow: hidden;
 }
 .copyright_wrap p {
