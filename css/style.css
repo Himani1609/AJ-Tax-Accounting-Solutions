@@ -8302,37 +8302,24 @@ h6 .wpb_text_column p {
 	height: 199px;
 }
 
+/* --------------------------------- */
 
 
-/* ------------------------------------------ */
 
-
-.contact-form {
-    max-width: 700px;
-    margin: 0 auto;
-    font-family: 'Poppins', sans-serif;
+.sc_form_fields form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
   }
 
-  .contact-form h2 {
-    text-align: center;
-    font-size: 2rem;
-    margin-bottom: 10px;
-  }
-
-  .contact-form p.description {
-    text-align: center;
-    color: #888;
-    margin-bottom: 30px;
-  }
-
-  .form-row {
+  .sc_form_fields .form-row {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
   }
 
   .form-group {
-    flex: 1 1 calc(50% - 20px);
+    flex: 1 1 calc(50% - 10px);
     display: flex;
     flex-direction: column;
   }
@@ -8341,43 +8328,59 @@ h6 .wpb_text_column p {
     flex: 1 1 100%;
   }
 
-  .contact-form input,
-  .contact-form select,
-  .contact-form textarea {
-    padding: 14px 20px;
+  .sc_form_fields input,
+  .sc_form_fields select,
+  .sc_form_fields textarea {
+    padding: 15px 20px;
     border: none;
     border-radius: 30px;
     background-color: #f0f0f0;
     font-size: 1rem;
-    margin-bottom: 20px;
+    color: #333;
     width: 100%;
   }
 
-  .contact-form textarea {
-    border-radius: 20px;
-    min-height: 140px;
-    resize: vertical;
+  .sc_form_fields select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
   }
 
-  .contact-form button {
+  .sc_form_fields textarea {
+    border-radius: 25px;
+    resize: vertical;
+    min-height: 130px;
+  }
+
+  .button-wrapper {
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 10px;
+  }
+
+  .sc_form_fields button {
     background-color: #4dcc7d;
     color: white;
     border: none;
+    padding: 14px 32px;
     border-radius: 30px;
-    padding: 15px 30px;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
   }
 
-  .contact-form button:hover {
-    background-color: #3bbf6a;
+  .sc_form_fields button:hover {
+    background-color: #3cbf6d;
   }
 
-  .contact-form .button-wrapper {
-    text-align: left;
-    margin-top: 20px;
+  /* Responsive for smaller screens */
+  @media (max-width: 600px) {
+    .form-group {
+      flex: 1 1 100%;
+    }
+
+    .button-wrapper {
+      justify-content: center;
+    }
   }
