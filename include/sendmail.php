@@ -1,39 +1,29 @@
-<?php 
-global $_REQUEST;
-$response = array('error'=>'');
-$contact_email = 'himanibansal1691998@gmail.com';
+<?php
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
 
-// type
-$type = $_REQUEST['type'];	
-// parse
-parse_str($_POST['data'], $post_data);	
-		
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $name    = $_POST["username"] ?? '';
+    $email   = $_POST["email"] ?? '';
+    $phone   = $_POST["phone"] ?? '';
+    $subject = $_POST["subject"] ?? 'No subject';
+    $message = $_POST["message"] ?? '';
 
-		$user_name = stripslashes(strip_tags(trim($post_data['username'])));
-		$user_email = stripslashes(strip_tags(trim($post_data['email'])));
-		$user_subject = stripslashes(strip_tags(trim($post_data['subject'])));
-		$phone = stripslashes(strip_tags(trim($post_data['phone'])));
-		$user_msg =stripslashes(strip_tags(trim( $post_data['message'])));
-			
-		if (trim($contact_email)!='') {
-			$subj = 'Message from Invetex';
-			$msg = $subj." \r\nName: $user_name \r\nE-mail: $user_email \r\nPhone: $phone \r\nSubject: $user_subject \r\nMessage: $user_msg";
-		
-			$head = "Content-Type: text/plain; charset=\"utf-8\"\n"
-				. "X-Mailer: PHP/" . phpversion() . "\n"
-				. "Reply-To: $user_email\n"
-				. "To: $contact_email\n"
-				. "From: $user_email\n";
-		
-			if (!@mail($contact_email, $subj, $msg, $head)) {
-				$response['error'] = 'Error send message!';
-			}
-		} else 
-				$response['error'] = 'Error send message!';	
-		
-		
+    if (empty($name) || empty($email) || empty($message)) {
+        echo "<script>alert('Please fill in all required fields.'); window.history.back();</script>";
+        exit;
+    }
 
-	//echo json_encode($post_data['username'].''.$post_data['email'].''$post_data['subject'].''.$post_data['message']);	
-	echo json_encode($response);
-	die();
-?>
+    $to = "himanibansal1691998@gmail.com";
+    $email_subject = "New Consultation Request: $subject";
+    $email_body = "Name: $name\nEmail: $email\nPhone: $phone\nSubject: $subject\n\nMessage:\n$message";
+
+    $headers = "From: $email\r\n";
+    $headers .= "Reply-To: $email\r\n";
+
+    if (mail($to, $email_subject, $email_body, $headers)) {
+        echo "<script>alert('Message sent successfully!'); window.location.href='../index.html';</script>";
+    } else {
+        echo "<script>alert('Message sending failed.'); window.history.back();</script>";
+    }
+}

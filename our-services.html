@@ -891,59 +891,50 @@
             </div>
 
             <!-- CONSULTATION FORM -->
-            <div class="sc_section custom_bg_1" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
-                <div style="max-width: 600px; width: 100%;">
-                    <div class="sc_form_wrap">
-                        <div class="sc_form sc_form_style_form_3 margin_top_huge margin_bottom_huge">
-                            <h2 class="sc_form_title sc_item_title">Request a Free Consultation</h2>
-                            <div class="sc_form_descr sc_item_descr">
-                                Let us know how we can help — we'll get back to you shortly.
-                            </div>
-                            <div class="sc_form_fields">
-                                <form action="include/sendmail.php" class="sc_input_hover_default" data-formtype="form_3" method="post">
-                                    <div class="sc_columns columns_wrap sc_form_info">
-                                        <div class="column-1_2">
-                                            <div class="sc_form_item sc_form_field">
-                                                <input aria-required="true" class="sc_form_username" name="username" placeholder="Name *" type="text">
-                                            </div>
+                <div class="sc_section custom_bg_1" style="display: flex; justify-content: center; align-items: center; min-height: 100vh;">
+                    <div style="max-width: 600px; width: 100%;">
+                        <div class="sc_form_wrap">
+                            <div class="sc_form sc_form_style_form_3 margin_top_huge margin_bottom_huge">
+                                <h2 class="sc_form_title sc_item_title">Request a Free Consultation</h2>
+                                <div class="sc_form_descr sc_item_descr">
+                                    Let us know how we can help — we'll get back to you shortly.
+                                </div>
+                                <div class="sc_form_fields">
+                                    <form action="include/sendmail.php" method="post">
+                                        <div class="form-row">
+                                        <div class="form-group">
+                                            <input type="text" name="username" placeholder="Name *" required>
                                         </div>
-                                        <div class="column-1_2">
-                                            <div class="sc_form_item sc_form_field">
-                                                <input aria-required="true" class="sc_form_email" name="email" placeholder="E-mail *" type="text">
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="email" name="email" placeholder="E-mail *" required>
                                         </div>
-                                        <div class="column-1_2">
-                                            <div class="sc_form_item sc_form_field">
-                                                <input aria-required="true" class="sc_form_phone" name="phone" placeholder="Phone" type="text">
-                                            </div>
+                                        <div class="form-group">
+                                            <input type="text" name="phone" placeholder="Phone">
                                         </div>
-                                        <div class="column-1_2">
-                                            <div class="sc_form_item sc_form_field">
-                                                <select name="subject" class="sc_form_subj" required>
-                                                    <option value="" disabled selected>Select a Service *</option>
-                                                    <option value="Personal Income Tax (T1)">Personal Income Tax (T1)</option>
-                                                    <option value="Corporate Income Tax (T2)">Corporate Income Tax (T2)</option>
-                                                    <option value="Business Incorporation & Registration">Business Incorporation & Registration</option>
-                                                    <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
-                                                    <option value="Payroll & Salary Services">Payroll & Salary Services</option>
-                                                    <option value="GST/HST Return Filing">GST/HST Return Filing</option>
-                                                </select>
-                                            </div>
+                                        <div class="form-group">
+                                            <select name="subject" required>
+                                            <option value="" disabled selected>Select a Service *</option>
+                                            <option value="Personal Income Tax (T1)">Personal Income Tax (T1)</option>
+                                            <option value="Corporate Income Tax (T2)">Corporate Income Tax (T2)</option>
+                                            <option value="Business Incorporation & Registration">Business Incorporation & Registration</option>
+                                            <option value="Accounting & Bookkeeping">Accounting & Bookkeeping</option>
+                                            <option value="Payroll & Salary Services">Payroll & Salary Services</option>
+                                            <option value="GST/HST Return Filing">GST/HST Return Filing</option>
+                                            </select>
                                         </div>
-                                    </div>
-                                    <div class="sc_form_item sc_form_message">
-                                        <textarea aria-required="true" class="sc_form_message" name="message" placeholder="Message"></textarea>
-                                    </div>
-                                    <div class="sc_form_item sc_form_button">
-                                        <button class="sc_button sc_button_style_filled sc_button_size_medium sc_button_iconed icon-paper-plane-light">Send Request</button>
-                                    </div>
-                                    <div class="result sc_infobox"></div>
-                                </form>
+                                        <div class="form-group form-group-full">
+                                            <textarea name="message" placeholder="Message"></textarea>
+                                        </div>
+                                        <div class="form-group form-group-full button-wrapper">
+                                            <button type="submit">Send Request</button>
+                                        </div>
+                                        </div>
+                                    </form>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div> 
 
 
 

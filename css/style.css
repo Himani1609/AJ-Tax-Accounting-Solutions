@@ -8302,3 +8302,82 @@ h6 .wpb_text_column p {
 	height: 199px;
 }
 
+
+
+/* ------------------------------------------ */
+
+
+.contact-form {
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .contact-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+  }
+
+  .contact-form p.description {
+    text-align: center;
+    color: #888;
+    margin-bottom: 30px;
+  }
+
+  .form-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .form-group {
+    flex: 1 1 calc(50% - 20px);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .form-group-full {
+    flex: 1 1 100%;
+  }
+
+  .contact-form input,
+  .contact-form select,
+  .contact-form textarea {
+    padding: 14px 20px;
+    border: none;
+    border-radius: 30px;
+    background-color: #f0f0f0;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .contact-form textarea {
+    border-radius: 20px;
+    min-height: 140px;
+    resize: vertical;
+  }
+
+  .contact-form button {
+    background-color: #4dcc7d;
+    color: white;
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: background 0.3s ease;
+  }
+
+  .contact-form button:hover {
+    background-color: #3bbf6a;
+  }
+
+  .contact-form .button-wrapper {
+    text-align: left;
+    margin-top: 20px;
+  }
