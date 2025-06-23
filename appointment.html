@@ -24,6 +24,50 @@
     <link href='css/responsive.css' media='all' property="stylesheet" rel='stylesheet' type='text/css'>
     <link href="images/favi.png" rel="icon" sizes="192x192">
 </head>
+
+<style>
+    .form{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .form-container {
+      background: white;
+      padding: 30px;
+      border-radius: 10px;
+      margin: 30px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin: 15px 0 5px;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      background-color: #43c37d;
+      color: white;
+      border: none;
+      padding: 12px 20px;
+      font-size: 16px;
+      border-radius: 30px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #38b96f;
+    }
+  </style>
+
+
 <body class="body_style_wide body_filled scheme_original top_panel_show top_panel_above sidebar_hide sidebar_outer_show sidebar_outer_yes">
     <div id="page_preloader"></div>
     <div class="body_wrap">
@@ -505,7 +549,7 @@
                 </div>
                 <div class="mask"></div>
             </div>
-            <div class="page_content_wrap page_paddings_no">
+            <!-- <div class="page_content_wrap page_paddings_no">
                 <div class="content_wrap">
                     <div class="content">
                         <article class="itemscope post_item post_item_single post_featured_default post_format_standard">
@@ -590,8 +634,55 @@
                         </article>
                     </div>
                 </div>
-            </div>
+            </div> -->
             
+            <div class="form">
+                <div class="form-container">
+                <h2>Book an Appointment</h2>
+                <form action="book_appointment.php" method="post">
+                <label for="name">Name *</label>
+                <input type="text" name="name" required>
+
+                <label for="email">Email *</label>
+                <input type="email" name="email" required>
+
+                <label for="phone">Phone</label>
+                <input type="text" name="phone">
+
+                <label for="date">Choose a Date *</label>
+                <input type="date" name="date" min="<?= date('Y-m-d'); ?>" required>
+
+                <label for="time">Time Slot *</label>
+                    <select name="time" required>
+                    <option value="" disabled selected>Select a Time</option>
+                    <option value="10:00 AM">10:00 AM</option>
+                    <option value="11:00 AM">11:00 AM</option>
+                    <option value="12:00 PM">12:00 PM</option>
+                    <option value="1:00 PM">1:00 PM</option>
+                    <option value="2:00 PM">2:00 PM</option>
+                    <option value="3:00 PM">3:00 PM</option>
+                    <option value="4:00 PM">4:00 PM</option>
+                    <option value="5:00 PM">5:00 PM</option>
+                    <option value="6:00 PM">6:00 PM</option>
+                    </select>
+                <label for="duration">Duration *</label>
+                    <select name="duration" required>
+                    <option value="" disabled selected>Select Duration</option>
+                    <option value="30 minutes">30 minutes</option>
+                    <option value="1 hour">1 hour</option>
+                    <option value="1.5 hours">1.5 hours</option>
+                    </select>
+
+
+
+                <button type="submit">Confirm Booking</button>
+                </form>
+                </div>
+            </div>
+
+
+
+
             <footer class="footer_area_top_wrap scheme_dark">
                 <div class="footer_wrap_inner">
                     <div class="columns_wrap no_margins custom_columns_1">
