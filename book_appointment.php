@@ -1,24 +1,21 @@
 <?php
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Sanitize inputs
-    $name  = htmlspecialchars($_POST['name'] ?? '');
-    $email = htmlspecialchars($_POST['email'] ?? '');
-    $phone = htmlspecialchars($_POST['phone'] ?? '');
-    $date  = $_POST['date'] ?? '';
-    $time  = $_POST['time'] ?? '';
+    $name     = htmlspecialchars($_POST['name'] ?? '');
+    $email    = htmlspecialchars($_POST['email'] ?? '');
+    $phone    = htmlspecialchars($_POST['phone'] ?? '');
+    $date     = $_POST['date'] ?? '';
+    $time     = $_POST['time'] ?? '';
     $duration = $_POST['duration'] ?? '';
 
-
-    // Basic validation
+    // Validate required fields
     if (empty($name) || empty($email) || empty($date) || empty($time) || empty($duration)) {
-    echo "<script>alert('All required fields must be filled.'); window.history.back();</script>";
-    exit;
-}
-
+        echo "<script>alert('All required fields must be filled.'); window.history.back();</script>";
+        exit;
+    }
 
     $csvFile = 'appointments.csv';
     $newEntry = [$name, $email, $phone, $date, $time, $duration];
-
 
     // Prevent duplicate date/time booking
     $isDuplicate = false;
@@ -34,12 +31,38 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     if ($isDuplicate) {
         echo "<script>alert('This time slot is already booked. Please choose another.'); window.history.back();</script>";
-    } else {
-        $fp = fopen($csvFile, 'a');
+        exit;
+    }
+
+    // Save to CSV
+    $fileCreated = !file_exists($csvFile);
+    $fp = fopen($csvFile, 'a');
+    if ($fp) {
+        if ($fileCreated) {
+            fputcsv($fp, ['Name', 'Email', 'Phone', 'Date', 'Time', 'Duration']);
+        }
         fputcsv($fp, $newEntry);
         fclose($fp);
-
-        echo "<script>alert('Appointment booked successfully!'); window.location.href='appointment.html';</script>";
     }
+
+    // Email notification
+    $to = "info@himanibansal.com"; // your email
+    $subject = "New Appointment Booking";
+    $message = "A new appointment has been scheduled:\n\n"
+             . "Name: $name\n"
+             . "Email: $email\n"
+             . "Phone: $phone\n"
+             . "Date: $date\n"
+             . "Time: $time\n"
+             . "Duration: $duration\n";
+
+    $headers = "From: info@ajtaxsolutions.ca\r\n";
+    $headers .= "Reply-To: $email\r\n";
+    $headers .= "Content-Type: text/plain; charset=UTF-8\r\n";
+
+    // Send the email
+    mail($to, $subject, $message, $headers);
+
+    echo "<script>alert('Appointment booked successfully!'); window.location.href='appointment.html';</script>";
 }
 ?>
