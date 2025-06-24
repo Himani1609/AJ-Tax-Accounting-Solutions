@@ -9,12 +9,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $date    = date('Y-m-d H:i:s');
 
     // Basic validation
-    if (empty($name) || empty($email) || empty($message)) {
+    if (empty($name) || empty($email) ) {
         echo "<script>alert('Please fill in all fields.'); window.history.back();</script>";
         exit;
     }
 
-    // Send email
     $to = "himanibansal1691998@gmail.com"; 
     $subject = "Website Feedback from $name";
     $body = "You’ve received new feedback:\n\n"
@@ -27,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $headers .= "Reply-To: $email\r\n";
 
     //Save to CSV
-    $csvFile = __DIR__ . '/feedback.csv';
+    $csvFile = 'feedback.csv';
     $entry = [$date, $name, $email, $message];
 
     $fileCreated = !file_exists($csvFile);
@@ -35,14 +34,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if ($fp) {
         if ($fileCreated) {
-            // Add headers on first creation
             fputcsv($fp, ['Date', 'Name', 'Email', 'Message']);
         }
         fputcsv($fp, $entry);
         fclose($fp);
     }
 
-    //Send email and show alert
     if (mail($to, $subject, $body, $headers)) {
         echo "<script>alert('Thank you for your feedback!'); window.location.href='contacts.html';</script>";
     } else {
