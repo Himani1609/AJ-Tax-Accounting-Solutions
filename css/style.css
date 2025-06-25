@@ -403,7 +403,8 @@ input[type="email"],
 input[type="password"],
 input[type="search"],
 input[type="checkbox"],
-input[type="radio"] {
+input[type="radio"],
+input[type="select"] {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -8286,8 +8287,9 @@ h6 .wpb_text_column p {
 
 /* Page Shortcodes */
 .top_panel_image.top_panel_image_1{
-	background-image: url(../images/photo2.jpg);
+	background-image: url(../images/10.jpg);
 	background-size: cover;
+    opacity: 0.8;
 	background-position: center;
 }
 .call_to_action_bg{
@@ -8384,3 +8386,43 @@ h6 .wpb_text_column p {
       justify-content: center;
     }
   }
+
+
+.rev_slider li {
+  position: relative;
+}
+
+.slide-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 1;
+  pointer-events: none; 
+}
+
+.rev_slider .tp-caption {
+  z-index: 2 !important;
+  position: relative;
+}
+
+.sc_client_image img {
+  border: 2px solid #ddd;               /* Light grey border */
+  border-radius: 0.5em;                 /* Rounded corners */
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.sc_client_image img:hover {
+  transform: scale(1.08);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-color: #54be73;                /* Change border color on hover */
+}
+
+@media (hover: none) {
+  .sc_client_image img:hover {
+    transform: none;
+    box-shadow: none;
+  }
+}

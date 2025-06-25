@@ -1189,111 +1189,111 @@ function invetex_countdown(dt) {
 
 
 // Contact form handlers
-function invetex_sc_form_validate(form){
-	"use strict";
-	var url = form.attr('action');
-	if (url == '') return false;
-	form.find('input').removeClass('error_fields_class');
-	var error = false;
-	var form_custom = form.data('formtype')=='form_custom';
-	if (!form_custom) {
+// function invetex_sc_form_validate(form){
+// 	"use strict";
+// 	var url = form.attr('action');
+// 	if (url == '') return false;
+// 	form.find('input').removeClass('error_fields_class');
+// 	var error = false;
+// 	var form_custom = form.data('formtype')=='form_custom';
+// 	if (!form_custom) {
 	
-		var rules = [], rule = {};
+// 		var rules = [], rule = {};
 
-		if (form.find('[name="username"]').length > 0) {
-			rule = {
-				field: "username",
-				max_length: { value: 60, message: INVETEX_STORAGE['strings']['name_long'] }
-			};
-			if (form.find('[name="username"][aria-required="true"]').length > 0)
-				rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['name_empty'] };
-			rules.push(rule);
-		}
+// 		if (form.find('[name="username"]').length > 0) {
+// 			rule = {
+// 				field: "username",
+// 				max_length: { value: 60, message: INVETEX_STORAGE['strings']['name_long'] }
+// 			};
+// 			if (form.find('[name="username"][aria-required="true"]').length > 0)
+// 				rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['name_empty'] };
+// 			rules.push(rule);
+// 		}
 		
-		if (form.find('[name="email"]').length > 0) {
-			rule = {
-				field: "email",
-				max_length: { value: 60, message: INVETEX_STORAGE['strings']['email_long'] },
-				mask: { value: INVETEX_STORAGE['email_mask'], message: INVETEX_STORAGE['strings']['email_not_valid'] }
-			};
-			if (form.find('[name="email"][aria-required="true"]').length > 0)
-				rule['min_length'] = { value: 7, message: INVETEX_STORAGE['strings']['email_empty'] };
-			rules.push(rule);
-		}
+// 		if (form.find('[name="email"]').length > 0) {
+// 			rule = {
+// 				field: "email",
+// 				max_length: { value: 60, message: INVETEX_STORAGE['strings']['email_long'] },
+// 				mask: { value: INVETEX_STORAGE['email_mask'], message: INVETEX_STORAGE['strings']['email_not_valid'] }
+// 			};
+// 			if (form.find('[name="email"][aria-required="true"]').length > 0)
+// 				rule['min_length'] = { value: 7, message: INVETEX_STORAGE['strings']['email_empty'] };
+// 			rules.push(rule);
+// 		}
 		
-		if (form.find('[name="subject"]').length > 0) {
-			rule = {
-				field: "subject",
-				max_length: { value: 100, message: INVETEX_STORAGE['strings']['subject_long'] }
-			};
-			if (form.find('[name="subject"][aria-required="true"]').length > 0)
-				rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['subject_empty'] };
-			rules.push(rule);
-		}
+// 		if (form.find('[name="subject"]').length > 0) {
+// 			rule = {
+// 				field: "subject",
+// 				max_length: { value: 100, message: INVETEX_STORAGE['strings']['subject_long'] }
+// 			};
+// 			if (form.find('[name="subject"][aria-required="true"]').length > 0)
+// 				rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['subject_empty'] };
+// 			rules.push(rule);
+// 		}
 
-        if (form.find('[name="phone"]').length > 0) {
-            rule = {
-                field: "phone",
-                max_length: { value: 100, message: INVETEX_STORAGE['strings']['phone_long'] }
-            };
-            if (form.find('[name="phone"][aria-required="true"]').length > 0)
-                rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['phone_empty'] };
-            rules.push(rule);
-        }
+//         if (form.find('[name="phone"]').length > 0) {
+//             rule = {
+//                 field: "phone",
+//                 max_length: { value: 100, message: INVETEX_STORAGE['strings']['phone_long'] }
+//             };
+//             if (form.find('[name="phone"][aria-required="true"]').length > 0)
+//                 rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['phone_empty'] };
+//             rules.push(rule);
+//         }
 
-		if (form.find('[name="message"]').length > 0) {
-			rule = {
-				field: "message",
-				max_length: { value: INVETEX_STORAGE['contacts_maxlength'], message: INVETEX_STORAGE['strings']['text_long'] }
-			};
-			if (form.find('[name="message"][aria-required="true"]').length > 0)
-				rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['text_empty'] };
-			rules.push(rule);
-		}
+// 		if (form.find('[name="message"]').length > 0) {
+// 			rule = {
+// 				field: "message",
+// 				max_length: { value: INVETEX_STORAGE['contacts_maxlength'], message: INVETEX_STORAGE['strings']['text_long'] }
+// 			};
+// 			if (form.find('[name="message"][aria-required="true"]').length > 0)
+// 				rule['min_length'] = { value: 1, message: INVETEX_STORAGE['strings']['text_empty'] };
+// 			rules.push(rule);
+// 		}
 
-		error = invetex_form_validate(form, {
-			error_message_show: true,
-			error_message_time: 4000,
-			error_message_class: "sc_infobox sc_infobox_style_error",
-			error_fields_class: "error_fields_class",
-			exit_after_first_error: false,
-			rules: rules
-		});
-	}
-	if (!error && url!='#') {
-		jQuery.post(url, {
-			action: "send_form",
-			nonce: INVETEX_STORAGE['ajax_nonce'],
-			type: form.data('formtype'),
-			data: form.serialize()
-		}).done(function(response) {
-			"use strict";
-			var rez = {};
-			try {
-				rez = JSON.parse(response);
-			} catch (e) {
-				rez = { error: INVETEX_STORAGE['ajax_error'] };
-				console.log(response);
-			}
-			var result = form.find(".result").toggleClass("sc_infobox_style_error", false).toggleClass("sc_infobox_style_success", false);
-			if (rez.error === '') {
-				form.get(0).reset();
-				result.addClass("sc_infobox_style_success").html(INVETEX_STORAGE['strings']['send_complete']);
-				var return_url = form.find('input[name="return_url"]');
-				if (return_url.length > 0 && return_url.val()!='') {
-					setTimeout(function() {
-						"use strict";
-						window.location.href = return_url.val();
-					}, 3300);
-				}
-			} else {
-				result.addClass("sc_infobox_style_error").html(INVETEX_STORAGE['strings']['send_error'] + ' ' + rez.error);
-			}
-			result.fadeIn().delay(3000).fadeOut();
-		});
-	}
-	return !error;
-}
+// 		error = invetex_form_validate(form, {
+// 			error_message_show: true,
+// 			error_message_time: 4000,
+// 			error_message_class: "sc_infobox sc_infobox_style_error",
+// 			error_fields_class: "error_fields_class",
+// 			exit_after_first_error: false,
+// 			rules: rules
+// 		});
+// 	}
+// 	if (!error && url!='#') {
+// 		jQuery.post(url, {
+// 			action: "send_form",
+// 			nonce: INVETEX_STORAGE['ajax_nonce'],
+// 			type: form.data('formtype'),
+// 			data: form.serialize()
+// 		}).done(function(response) {
+// 			"use strict";
+// 			var rez = {};
+// 			try {
+// 				rez = JSON.parse(response);
+// 			} catch (e) {
+// 				rez = { error: INVETEX_STORAGE['ajax_error'] };
+// 				console.log(response);
+// 			}
+// 			var result = form.find(".result").toggleClass("sc_infobox_style_error", false).toggleClass("sc_infobox_style_success", false);
+// 			if (rez.error === '') {
+// 				form.get(0).reset();
+// 				result.addClass("sc_infobox_style_success").html(INVETEX_STORAGE['strings']['send_complete']);
+// 				var return_url = form.find('input[name="return_url"]');
+// 				if (return_url.length > 0 && return_url.val()!='') {
+// 					setTimeout(function() {
+// 						"use strict";
+// 						window.location.href = return_url.val();
+// 					}, 3300);
+// 				}
+// 			} else {
+// 				result.addClass("sc_infobox_style_error").html(INVETEX_STORAGE['strings']['send_error'] + ' ' + rez.error);
+// 			}
+// 			result.fadeIn().delay(3000).fadeOut();
+// 		});
+// 	}
+// 	return !error;
+// }
 
 
 

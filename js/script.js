@@ -1,9 +1,17 @@
 document.addEventListener("DOMContentLoaded", function () {
-  // Consultation Form
+
   const consultationForm = document.getElementById("consultation-form");
+
   if (consultationForm) {
+    // Remove any existing jQuery submit handlers just to be safe
+    if (window.jQuery) {
+      jQuery(consultationForm).off("submit");
+    }
+
+    // Now attach your own handler
     consultationForm.addEventListener("submit", function (e) {
       e.preventDefault();
+
       const formData = new FormData(consultationForm);
 
       fetch(consultationForm.action, {
@@ -14,17 +22,19 @@ document.addEventListener("DOMContentLoaded", function () {
         .then((data) => {
           if (data.success) {
             alert(data.message);
-            consultationForm.reset();
+            consultationForm.reset(); 
           } else {
             alert(data.message || "Something went wrong.");
           }
         })
         .catch((err) => {
-          console.error("Consultation Form Error:", err);
           alert("An error occurred. Please try again.");
+          console.error(err);
         });
     });
   }
+
+
 
   // Feedback Form
   const feedbackForm = document.getElementById("feedback-form");
