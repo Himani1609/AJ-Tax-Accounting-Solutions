@@ -8289,7 +8289,7 @@ h6 .wpb_text_column p {
 .top_panel_image.top_panel_image_1{
 	background-image: url(../images/10.jpg);
 	background-size: cover;
-    opacity: 0.8;
+    opacity: 0.9;
 	background-position: center;
 }
 .call_to_action_bg{
@@ -8530,4 +8530,12 @@ h6 .wpb_text_column p {
 }
 
 
-
+#service-description, .checklist-info{
+    color: #888490;
+    font-family: "Lora", serif;
+    font-size: 1.143em;
+    font-weight: 300;
+    line-height: 1.4em;
+    font-style: italic;
+    letter-spacing: 0.02em;
+}
