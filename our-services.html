@@ -245,7 +245,7 @@
 
             <!-- SERVICES -->
             <div class="page_content_wrap page_paddings_no">
-                <div class="sc_section">
+                <!-- <div class="sc_section">
                     <div class="content_wrap">
                         <div class="sc_empty_space" data-height="2em"></div>
                         <div class="sc_services_wrap">
@@ -263,7 +263,8 @@
                                             <div class="sc_services_item_content">
                                                 <h4 class="sc_services_item_title"><a>Personal Income Tax (T1)</a></h4>
                                                 <div class="sc_services_item_description">
-                                                    <p>Expert assistance to file your personal taxes accurately, on time, and with maximum savings.</p><br><span><button class="pdf-btn" id="download-pdf-btn">Download Checklist</button></span>
+                                                    <p>Expert assistance to file your personal taxes accurately, on time, and with maximum savings.</p><br>
+                                                <span><button class="pdf-btn" id="download-pdf-btn">Download Checklist</button></span>
                                                 </div>
                                                 <div class="sc_services_item_decoration"></div>
                                             </div>
@@ -345,9 +346,62 @@
                                 </div>
                             </div>
                         </div>
-                    </div><!-- /.sc_services_wrap -->
+                    </div>
+                </div> -->
+
+            <!-- Checklist Carousel -->
+            <div class="services-container" style="border-top: 0.1em solid darkgrey; display: flex; justify-content: center; align-items: center;">
+                <div class="checklist-carousel">
+                    <!-- Swiper or Slick carousel for checklist -->
                 </div>
 
+                <div class="service-content">
+                    <h3 id="service-title">Personal Income Tax (T1)</h3>
+                    <p id="service-description">
+                    Expert assistance to file your personal taxes accurately, on time, and with maximum savings. 
+                    </p>
+
+                    <div id="service-carousel" class="swiper-container">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide"><img src="images/35.jpg" style="  width: 600px; height: 400px;border-radius: 0.5em;display: block;"/></div>
+                        <!-- More slides based on service -->
+                    </div>
+                    <div class="swiper-pagination"></div>
+                    </div>
+
+                    <a id="download-pdf" href="pdfs/t1-checklist.pdf" class="sc_button sc_button_style_filled" download target="_blank">Download Checklist</a>
+
+                    <div class="checklist-info">
+                    <br>
+                    <span><strong>Please download the checklist</strong> and email it to <a href="mailto:abc@gmail.com">abc@gmail.com</a>. Our team will review your details and provide tailored assistance promptly.</span>
+                    </div>
+
+                </div>
+
+                <div class="service-sidebar">
+                <h5 class="widget_title">Services</h5>
+                <ul id="services-list">
+                    <li data-service="personal">
+                    <img src="images/personal.png" alt="Personal Tax Icon" class="icon" style="max-width: 15%;"> Personal Income Tax (T1)
+                    </li>
+                    <li data-service="corporate">
+                    <img src="images/corporate.png" alt="Corporate Tax Icon" class="icon" style="max-width: 15%;"> Corporate Income Tax (T2)
+                    </li>
+                    <li data-service="business">
+                    <img src="images/business.png" alt="Business Icon" class="icon" style="max-width: 15%;"> Business Incorporation
+                    </li>
+                    <li data-service="bookkeeping">
+                    <img src="images/bookkeeping.png" alt="Bookkeeping Icon" class="icon" style="max-width: 15%;"> Accounting & Bookkeeping
+                    </li>
+                    <li data-service="payroll">
+                    <img src="images/salary.png" alt="Payroll Icon" class="icon" style="max-width: 15%;"> Payroll Services
+                    </li>
+                    <li data-service="gst">
+                    <img src="images/gst.png" alt="GST Icon" class="icon" style="max-width: 15%;"> GST/HST Filing
+                    </li>
+                </ul>
+                </div>
+            </div>
 
                 <!-- Numbers/Metrics -->
                 <div class="sc_section" style="box-shadow:0 8px 20px rgb(143, 143, 143)" >
@@ -518,11 +572,15 @@
                 </div>
             </div>
 
+
+
+
+
             <!-- TESTIMONIALS -->
             <div class="sc_section">
                 <div class="content_wrap">
                     <div class="sc_empty_space" data-height="2.4em"></div>
-                    <div class="sc_testimonials sc_testimonials_style_testimonials-1 margin_top_huge margin_bottom_huge">
+                    <div class="sc_testimonials sc_testimonials_style_testimonials-1 margin_top_huge ">
                             <h2 class="sc_testimonials_title sc_item_title">Testimonials</h2>
                             <div class="sc_testimonials_descr sc_item_descr">
                                Testimonials from clients who have benefited from our personalized tax and accounting solutions —<br> a trusted approach that has driven business success for years.
@@ -744,6 +802,72 @@
             update();
         });
         });
+
+
+        const services = {
+        personal: {
+            title: "Personal Income Tax (T1)",
+            description: "Expert assistance to file your personal taxes accurately, on time, and with maximum savings.",
+            images: ["images/35.jpg"],
+            pdf: "pdfs/t1-checklist.pdf"
+        },
+        corporate: {
+            title: "Corporate Income Tax (T2)",
+            description: "We help minimize corporate tax liabilities while maximizing available credits and deductions.",
+            images: ["images/11.jpg"],
+            pdf: "pdfs/t2-checklist.pdf"
+        },
+        business: {
+            title: "Business Incorporation & Registration",
+            description: "Start strong with our setup services for new businesses, including incorporation, HST, and payroll.",
+            images: ["images/31.jpg"],
+            pdf: "pdfs/business-checklist.pdf"
+        },
+        bookkeeping: {
+            title: "Accounting & Bookkeeping",
+            description: "Reliable day-to-day bookkeeping so you can focus on growing your business, not tracking receipts.",
+            images: ["images/32.jpg"],
+            pdf: "pdfs/bookkeeping-checklist.pdf"
+        },
+        payroll: {
+            title: "Payroll & Salary Services",
+            description: "Simplified, compliant payroll solutions for businesses of any size, anywhere in Canada.",
+            images: ["images/33.jpg"],
+            pdf: "pdfs/payroll-checklist.pdf"
+        },
+        gst: {
+            title: "GST/HST Return Filing",
+            description: "Efficient and timely GST/HST filing, handled by our team so you can concentrate on your clients.",
+            images: ["images/34.jpg"],
+            pdf: "pdfs/gst-checklist.pdf"
+        }
+        };
+
+        document.querySelectorAll("#services-list li").forEach(item => {
+        item.addEventListener("click", () => {
+            const key = item.getAttribute("data-service");
+            const service = services[key];
+
+            // Update title, description, and PDF link
+            document.getElementById("service-title").textContent = service.title;
+            document.getElementById("service-description").textContent = service.description;
+           const pdfLink = document.getElementById("download-pdf");
+            pdfLink.href = service.pdf;
+            pdfLink.target = "_blank"; 
+
+
+            // Update carousel images
+            const carousel = document.querySelector("#service-carousel .swiper-wrapper");
+            carousel.innerHTML = service.images
+            .map(src => `<div class="swiper-slide"><img src="${src}" class="carousel-image" /></div>`)
+            .join("");
+
+            // Reinitialize Swiper
+            if (window.swiper) swiper.update();
+
+        });
+        });
+
     </script>
     
     <div class="popup_wrap_bg"></div><a class="scroll_to_top icon-up" href="#" title="Scroll to top"></a> 
