@@ -3067,7 +3067,7 @@ body:not(.top_panel_fixed) .top_panel_style_3.boxed_style .top_panel_middle {
     overflow: hidden;
 }
 .top_panel_wrap .logo_main {
-    max-height: 100px;
+    max-height: 223px;
     width: auto;
 }
 .top_panel_fixed .top_panel_wrap .logo {
@@ -3079,7 +3079,7 @@ body:not(.top_panel_fixed) .top_panel_style_3.boxed_style .top_panel_middle {
 }
 .logo img {
     float: left;
-    margin: 0 0.7857em 0.7857em 0;
+    margin: -50px -5.2143em -0.2143em 0;
     width: auto;
 }
 .logo_text,
@@ -4474,6 +4474,8 @@ body .top_panel_wrap .top_panel_middle .search_style_fullscreen .search_field:fo
 .top_panel_over:not(.top_panel_fixed) .breadcrumbs a,
 .top_panel_over:not(.top_panel_fixed) .breadcrumbs {
     color: #cfcfcf;
+    font-size: 1.1em;
+    font-weight: 500;
 }
 .top_panel_title.title_present:not(.navi_present) .breadcrumbs {
     padding: 1em 0 2.5em;
@@ -6798,7 +6800,7 @@ blockquote cite {
 /*************** Footer areas ***************/
 .footer_wrap_inner {
 	margin: -1px 0;
-    padding: 6.8em 0 2em;
+    padding: 4em 0 2em;
 }
 .footer_area_top_wrap .footer_wrap_inner,
 .footer_area_wrap .footer_wrap_inner {
@@ -8289,8 +8291,9 @@ h6 .wpb_text_column p {
 .top_panel_image.top_panel_image_1{
 	background-image: url(../images/10.jpg);
 	background-size: cover;
-    opacity: 0.9;
+    opacity: 1;
 	background-position: center;
+    
 }
 .call_to_action_bg{
 	background-image:url(../images/570x338.jpg);
