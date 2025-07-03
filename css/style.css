@@ -3067,7 +3067,7 @@ body:not(.top_panel_fixed) .top_panel_style_3.boxed_style .top_panel_middle {
     overflow: hidden;
 }
 .top_panel_wrap .logo_main {
-    max-height: 223px;
+    max-height: 250px;
     width: auto;
 }
 .top_panel_fixed .top_panel_wrap .logo {
